@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "power-assert": "^1.6.1"
+  }
+}
