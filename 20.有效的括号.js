@@ -9,26 +9,28 @@
  * @param {string} s
  * @return {boolean}
  */
- var isValid = function (s) {
-  const arr = []
+var isValid = function (s) {
+  if (s.length % 2 === 1) {
+    return false;
+  }
+  const stack = [];
   const obj = {
     '(': ')',
     '[': ']',
-    '{': '}',
-  }
+    '{': '}'
+  };
   for (const str of s) {
     if (str in obj) {
-      arr.push(obj[str])
+      stack.push(obj[str]);
     } else {
-      if (str !== arr.pop()) {
-        return false
+      if (str !== stack.pop()) {
+        return false;
       }
     }
   }
-  return arr.length === 0
-}
+  return !stack.length;
+};
 
 // 时间复杂度 O(n)
 // 空间复杂度 O(n)
 // @lc code=end
-
