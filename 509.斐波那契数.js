@@ -16,6 +16,20 @@ var fib = function (n) {
   // }
 
   // return fib(n-1) + fib(n-2)
+  // * 递归 + 备忘录
+  // const searchHelper = (memo, n)=>{
+  //   if (n < 2) {
+  //     return n;
+  //   }
+  //   if(memo[n]) {
+  //     return memo[n];
+  //   }
+  //   memo[n] = searchHelper(memo, n-1) + searchHelper(memo, n-2)
+  //   return memo[n];
+  // }
+  // const memo = [];
+  
+  // return searchHelper(memo,n)
   // * 动态规划（递推）
   // 确认dp[i]是什么 ?
   // dp[i]的推导公式是什么？
@@ -29,8 +43,7 @@ var fib = function (n) {
   let a = 0;
   let b = 1;
   let result;
-  if (n === 0) return a;
-  if (n === 1) return b;
+  if (n < 2) return n;
   for (let i = 2; i <= n; i++) {
     result = a + b;
     a = b;
